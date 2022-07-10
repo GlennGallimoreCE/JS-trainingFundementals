@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript testing site</title>
+</head>
+<body>
+    <p>This is an HTML page, but you can open up the html file in a browser tag, inspect element, then "Console" tab so you can see what "console.log" has for you.</p>
+    <p id="demo"></p>  <!--Keep the ElementById ABOVE the script tag, or it will not read.  It's always top/down.-->
+  <script>
+    // *** Variables/Lets/Constants with math ***
+    //let x = (4 + 6 + 9) / 77;
+    //let y = 97;
+    //let a = 10;
+    //let b = 7 * a;
+    //const max = 57;
+    //let actual = max - 13;
+    //let percentage = actual / max;
+
+    //document.getElementById("demo").innerHTML = <insert let/var here>;
+    //console.log(<insert let/var here>)  //FYI: var/let get no "", text require "" in console.log()
+
+    // *** Strings (remember, single quotes '' or "") ***
+    //const string = 'I hope to land a web developer job someday';
+    //const bigmouth = 'I\'ve got no right to take my place...';  //Note the \, its called an escape, without it the line will be an error due to the extra quotation.
+
+    // *** ConCATenating Strings ***
+    //const name = 'Glenn';
+    //const greeting = `Hello, ${name}`;  //console.log the greeting const to call both variables, since this line calls for the "name" variable.
+    
+    //document.getElementById("demo").innerHTML = <insert let/var here>;
+    //console.log(<insert let/var here>)  //FYI: var/let get no "", text require "" in console.log()
+
+
+
+
+
+    //const one = 'Hello, ';
+    //const two = 'how are you?';
+    //const joined = `${one}${two}`;
+    //console.log(joined); //This conCATs two variables
+    // window.alert() // window pop up prompt box
+
+    //let str = "Mario, Luigi, Peach";
+    //let part = str.slice( 7, 16); // slices part of the string by characters 0-any, ex: M in Mario is 0.  L in Luigi is 7.
+
+    // *** Comparisons ***
+    //alert( 2 > 1 );  // true (correct)
+    //alert( 2 == 1 ); // false (wrong)
+    //alert( 2 != 1 ); // true (correct)
+
+    //let result = 5 > 4; // assign the result of the comparison
+    //alert( result ); // true
+
+    // *** Functions and Else if *** 
+
+    //function add7() {
+    //    var number = prompt("Pick a number, then we'll add 7 to it!");
+    //    var newNum = 7 + parseInt(number);
+    //    alert (newNum);
+    //}
+    //add7();
+  
+    //function multiply() {
+    //    var num1 = prompt("Pick a the first number.");
+    //    var num2 = prompt("Pick a second number to multiply by the first.");      
+    //    var newNum = parseInt(num1 * num2);
+    //    alert (num1 + " " + "times" + " " + num2 + " " + "gets you" + " " + newNum + "!");
+    //}
+    //multiply();
+
+
+
+    //function firstUppercase() {
+    //    let word = prompt("Enter word(s) here, we'll capitalize the first letter of the sentence!");
+    //    alert (word[0].toUpperCase() + word.substring(1));
+    //}
+    //firstUppercase();
+
+    //function lastChar() {
+    //    let word = prompt("Enter word(s) here, we'll return the last character of the sentence!");
+    //    alert (word.slice(-1));
+    //}
+    //lastChar();
+
+    // *** FizzBuzz (Javascript format) For/Else/Elseif loops ***
+    let answer = parseInt(prompt("Please enter the number you would like to FizzBuzz up to: "));
+
+    for (let i = 1; i <= answer; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log("FizzBuzz");
+        } else if (i % 3 === 0) {
+            console.log("Fizz");
+        } else if (i % 5 === 0) {
+            console.log("Buzz");
+        } else {
+            console.log(i);
+        }
+    }
+
+
+
+  </script>
+
+</body>
+</html>
