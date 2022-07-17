@@ -85,8 +85,8 @@
 
     // *** FizzBuzz (Javascript format) For/Else/Elseif loops ***
     let answer = parseInt(prompt("Please enter the number you would like to FizzBuzz up to: "));
-
-    for (let i = 1; i <= answer; i++) {
+    
+    /*for (let i = 1; i <= answer; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
             console.log("FizzBuzz");
         } else if (i % 3 === 0) {
@@ -96,8 +96,287 @@
         } else {
             console.log(i);
         }
+    }*/
+
+
+//  Arrays!! ==================================================================================================
+
+    //ex:  const cars = ["Saab", "Volvo", "BMW"];  //highly advised to use "const" when creating arrays.
+
+    /* Also  same array, but formatted vertically.
+
+    const cars = [
+      "Saab",
+      "Volvo",
+      "BMW"
+    ];
+    
+    */
+
+/*  An array within an array
+
+  const cars = [];
+  cars[0]= "Saab";
+  cars[1]= "Volvo";
+  cars[2]= "BMW";
+
+*/
+
+/* 
+<p id="demo"></p>
+
+  const cars = ["Saab", "Volvo", "BMW"];
+  document.getElementById("demo").innerHTML = cars[1];
+
+**In the text of "demo", whatever value is in the array of "cars[]" will display as text.
+So we have 1 in cars[], which is telling us "Volvo" will be typed out.
+
+
+***Now you can change the statement in the array:
+  cars[0] = "Opel"
+
+**REMEMBER to always count from zero.  So "Saab" gets replaced with "Opel" when this array is set as above.
+*Now take out the value in the array, this will have the text in "demo" list all the items in said array.
+
+  const cars = ["Saab", "Volvo", "BMW"];
+  document.getElementById("demo").innerHTML = cars;
+
+
+// Object Arrays:
+  const person = {firstName:"John", lastName:"Doe", age:46};    //Note the number doesn't need quotations.
+
+//Associative Arrays:
+
+  const person = [];
+  person[0] = "John";
+  person[1] = "Doe";
+  person[2] = 46;
+  person.length;    // Will return 3
+  person[0];        // Will return "John"
+
+  myArray[0] = Date.now;
+  myArray[1] = myFunction;
+  myArray[2] = myCars;
+
+// Array properties -----------------------
+
+  cars.length   // Returns the number of elements, the snippet below tells the demo the length(amount) of objects/items in the array.
+
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  document.getElementById("demo").innerHTML = fruits.length;
+
+
+//**By changing  the property to a value, you will get the first object read back, which is 'Banana'.
+
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  document.getElementById("demo").innerHTML = fruits.[0];
+
+//***WARNING Adding a value that's greater than the amount of objects are in an array creates a hole.  Try to avoid!
+
+------------------------------------------------------------
+//**Adding "length -1" as our property, it will call the last object of the array, regardless how many objects are in one.
+
+  var fruits = ["Banana", "Orange", "Apple", "Mango"];
+  document.getElementById("demo").innerHTML = fruits[fruits.length-1];
+
+-------------------------------------------------------------------
+//**Looping an array... oh lawd. 
+
+<p id="demo"></p>
+
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  let fruitLength = fruits.length;
+
+  let text = "<ul>";                         //This generates an unordered list in your HTML page, by making a variable first.
+  for (let i = 0; i < fruitLength; i++) {    //The for loop is used to create a list of fruits, using fruits.length to call the array.
+    text += "<li>" + fruits[i] + "</li>";    //This generates said list in HTML, if you add more objects to the array using incrementation, the loop will call/make those too.
+  }
+  text += "</ul>";
+
+  document.getElementById("demo").innerHTML = text;
+
+--------------------------------------------------------------------
+//**Another way you can get the same result, is by using ".forEach" instead of ".length" and calling a function to add more to the list instead of a loop.
+
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+  let text = "<ul>";
+  fruits.forEach(myFunction);
+  text += "</ul>";
+  document.getElementById("demo").innerHTML = text;
+
+  function myFunction(value) {
+    text += "<li>" + value + "</li>";
+  } 
+
+--------------------------------------------------------------------
+//Creating an array from scratch, this alters the word in the <p> into the name of the object of the array.
+
+<p>Create an Array with one element.</p>
+
+<p id="demo"></p>
+
+
+  var points = [40];
+  document.getElementById("demo").innerHTML = points;  
+  
+  
+//Bonus snippet using sort.
+
+  cars.sort()   // Sorts the array
+*/
+
+/*
+=======================================================================================================================================
+//**** LOOPS, again, sort of.  (Or FOR OF, get it?)  *****
+
+//** The "for of loop" to loop through a collection assigning the variable of "cat", and it repeats until it ends.
+
+  const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
+
+  for (const cat of cats) {
+    console.log(cat);
+  }
+
+----------------------------------------
+//** Using "filter()" to filter by a given character, in this case, "L".
+
+  function lCat(cat) {
+    return cat.startsWith('L');
+  }
+
+  const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
+
+  const filtered = cats.filter(lCat);
+
+  console.log(filtered);
+  // [ "Leopard", "Lion" ]
+
+---------------------------------------
+
+//** Using "map()" to alter the text, for example changing the letters to all uppercase.
+
+  function toUpper(string) {
+    return string.toUpperCase();
+  }
+
+  const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
+
+  const upperCats = cats.map(toUpper);
+
+  console.log(upperCats);
+  // [ "LEOPARD", "SERVAL", "JAGUAR", "TIGER", "CARACAL", "LION" ]
+
+--------------------------------------
+
+//** Going back to the FOR loop, furthering details  
+
+  const results = document.querySelector('#results');
+
+  function calculate() {
+    for (let i = 1; i < 10; i++) {       //<---- Initializer (let i = 1), Condition (i < 10), Final Expression (i++) will increment until the contition of "i < 10" is no longer 'true'.
+      const newResult = `${i} x ${i} = ${i * i}`;
+      results.textContent += `${newResult}\n`;
+    }
+    results.textContent += '\nFinished!';  //Generates text when calculation finishes.
+  }
+
+  const calculateBtn = document.querySelector('#calculate');   //calling the button by it's HTML ID#
+  const clearBtn = document.querySelector('#clear');
+
+  calculateBtn.addEventListener('click', calculate);
+  clearBtn.addEventListener('click', () => results.textContent = '');
+
+------------------------------------
+
+//** Exiting a loop using "break;"
+
+  for (const contact of contacts) {
+    const splitContact = contact.split(':');
+    if (splitContact[0].toLowerCase() === searchName) {
+      para.textContent = splitContact[0] + '\'s number is ' + splitContact[1] + '.';
+      break;
+    }
+  }
+
+-----------------------------------
+
+//** Skipping an iteration with "continue;"
+
+  for (let i = 1; i <= num; i++) {
+    let sqRoot = Math.sqrt(i);
+    if (Math.floor(sqRoot) !== sqRoot) {
+      continue;
+    }
+    para.textContent += `${i} `;
+  }
+
+-----------------------------------
+
+//** WHILE loops -- similar to FOR loops, save the 'Initializer' is set before the actual FOR loop, instead of in.
+
+  const cats = ['Pete', 'Biggles', 'Jasmine'];
+
+  let myFavoriteCats = 'My cats are called ';
+
+  let i = 0;
+
+  while (i < cats.length) {
+    if (i === cats.length - 1) {
+      myFavoriteCats += `and ${cats[i]}.`;
+    } else {
+      myFavoriteCats += `${cats[i]}, `;
     }
 
+    i++;
+  }
+
+  console.log(myFavoriteCats);     // "My cats are called Pete, Biggles, and Jasmine."
+
+----------------------------------
+
+//**It can go further, by adding a 'DO...WHILE' loop:
+
+  const cats = ['Pete', 'Biggles', 'Jasmine'];
+
+  let myFavoriteCats = 'My cats are called ';
+
+  let i = 0;
+
+  do {
+    if (i === cats.length - 1) {
+      myFavoriteCats += `and ${cats[i]}.`;
+    } else {
+      myFavoriteCats += `${cats[i]}, `;
+    }
+
+    i++;
+  } while (i < cats.length);
+
+  console.log(myFavoriteCats);     // "My cats are called Pete, Biggles, and Jasmine."
+
+-----------------------------------
+//** testing my skill - countdown from 10 to blastoff  -- I failed this first few tries by only using a FOR loop with i--, so I use this snippet to study
+
+  const output = document.querySelector('.output');
+  output.innerHTML = '';
+
+  let i = 10;                                     //Setting the variable 'i' to 10 as the start of the countdown.
+
+  while (i >= 0) {                                //WHILE loop when i is still greater than or = to 0...
+    const para = document.createElement('p');     //...a paragraph element would be created for each number for the countdown.
+    if (i === 10) {                               //IF the variable is equal to 0...
+    para.textContent = `Countdown ${i}`;          //(This just adds the text Countdown 10 in the first line.)
+    } else if (i === 0) {                         //...else if i is equal to 0, the code tells the text to display "blast off!"
+      para.textContent = 'Blast off!';
+    } else {
+    para.textContent = i;                         //If i is NOT equal to zero, then the coundown continues until the loop reaches the else if statement.
+    }
+
+    output.appendChild(para);                     //Appends the paragraph for each digit during the countdown, leave inside the loop
+
+    i--;                                          //i-- opposite of i++, it's decrements/subtracts.
+  }
 
 
   </script>
