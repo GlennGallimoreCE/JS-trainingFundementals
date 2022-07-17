@@ -379,6 +379,82 @@ So we have 1 in cars[], which is telling us "Volvo" will be typed out.
   }
 
 
+//** testing my skill2 - Guest list with exclusions -- This was simpler, but still messed up the for loop so I checked the solution and forgot "|| OR" existed.
+
+
+  const people = ['Chris', 'Anne', 'Colin', 'Terri', 'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];   //An array of guests, including the ones we want to exclude.
+
+  const admitted = document.querySelector('.admitted');               //Both are self explanitory, with custom text content.
+  const refused = document.querySelector('.refused');
+
+  admitted.textContent = 'Admit: ';                                   //the textContent creates the live output of Admit/Refuse
+  refused.textContent = 'Refuse: ';
+
+  for (const person of people) {                                      //FOR loop of a const variable(person) calling [people] array
+    if (person === 'Phil' || person === 'Lola') {                     //The IF statement has an OR in it for both exclusions, I was using && to no avail
+      refused.textContent += `${person}, `;                           //Thus the IF in the loop refuses the guests and lists them
+    } else {
+      admitted.textContent += `${person}, `;                          //And the ELSE statement admits everyone else and lists them
+    }
+  }
+
+  refused.textContent = refused.textContent.slice(0,refused.textContent.length-2) + '.';  //The slice here adds a period at the end of the string, assuming that's what the -2 is.
+  admitted.textContent = admitted.textContent.slice(0,admitted.textContent.length-2) + '.';
+
+-----------------------------------------------------------------------
+//**  Some info on postfix (i++)/prefix (++i)
+
+//* postfix, which is what we've been using so far:
+  let i = 0;
+  while (++i < 5) alert( i );
+
+This loop will count to four and stop, since once the increment reaches 5, the loop ends.
+
+  let i = 0;
+  while (i++ < 5) alert( i );
+
+//*Same result as the first, but the alert comes 'after' the increment.
+
+----------------------------------------------------------------------
+
+//**  Some math, starting with a for loop to calculate even numbers, similar to how we did FizzBuzz.
+
+for (let i = 2; i <= 10; i++) {             //We start with i as 2, and 10 being the end of the loop, incrementing by 2
+  if (i % 2 == 0) {                         //Use the mudulo-% to get the remainder and check for evens
+    alert( i );
+  }
+}
+
+//** number checker, a prompt asking to enter a value greater than 100 or you get asked again
+
+  let num;
+
+  do {                                                         //This is a DO..WHILE loop, 
+    num = prompt("Enter a number greater than 100?", 0);       //The prompt set as a variable and value at the end.
+  } while (num <= 100 && num);                                 //This checks if the number is less than 100, if true the prompt will repeat
+
+
+//** display prime numbers under 20
+
+  let n = 20;
+
+  nextPrime:
+  for (let i = 2; i <= n; i++) {                              // for each i until the value is equal to n
+
+    for (let j = 2; j < i; j++) {                             // look for a divisor..
+      if (i % j == 0) continue nextPrime;                     // not a prime, go next i
+    }
+
+    alert( i );                                               // send alert if number is a prime
+  }
+
+
+
+
+
+
+*/
+
   </script>
 
 </body>
